@@ -6,7 +6,7 @@ export const AppDataSource = new DataSource({
     port: 3306,
     username: "root",
     password: "guang",
-    database: "ruoyi",
+    database: "xiaoruo",
     synchronize: false,
     connectorPackage:'mysql2',
     logging: true,

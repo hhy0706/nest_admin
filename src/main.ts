@@ -25,7 +25,7 @@ async function bootstrap() {
   app.useGlobalFilters(new CustomExceptionFilter());
   app.useStaticAssets('public', { prefix: '/static' });
   app.enableCors();
-
+  console.log(`Nest-Admin 服务启动成功 `, '\n', '\n', '服务地址', `http://localhost:${configService.get('nest_server_port')}/`, '\n', 'swagger 文档地址        ', `http://localhost:${configService.get('nest_server_port')}/swagger/`);
   await app.listen(configService.get('nest_server_port'));
 }
 bootstrap();

@@ -5,14 +5,16 @@ import { Reflector } from '@nestjs/core';
 import { pathToRegexp } from 'path-to-regexp';
 import { JwtService } from '@nestjs/jwt';
 import { ALLOW_ANON } from '../decorators/allow-anon.decorator';
+import { AuthGuard } from '@nestjs/passport';
 @Injectable()
-export class AuthGuard implements CanActivate {
+export class JwtAuthGuard extends AuthGuard('jwt') {
   private globalWhiteList: typeof whitelist;
   @Inject(Reflector)
   private readonly reflector: Reflector;
   @Inject(JwtService)
   private readonly jwtService:JwtService;
   constructor() {
+    super();
     this.globalWhiteList = [].concat(whitelist);
   }
   canActivate(
